@@ -403,8 +403,11 @@ const STYLE = `
   .tag-lab  { font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--accent2); width:70px; flex-shrink:0; }
   .tag { display:inline-flex; align-items:center; gap:5px; padding:4px 11px; border:1px solid var(--border); border-radius:20px; font-size:.78rem; cursor:pointer; background:transparent; color:var(--muted); font-family:var(--fb); transition:all .15s; white-space:nowrap; }
   .tag:hover { border-color:var(--accent2); color:var(--text); }
-  .tag.sel { border-color:var(--accent); color:var(--accent); background:rgba(200,169,110,.08); }
-
+.tag.sel {
+  border-color: #1F120D;
+  color: #ffffff;
+  background: #1F120D;
+}
   /* FILTER PANEL */
   .filter-panel { background:var(--surface); border:1px solid var(--border); border-top:none; padding:16px 22px 20px; }
   .filter-title { font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--accent2); margin-bottom:10px; }
