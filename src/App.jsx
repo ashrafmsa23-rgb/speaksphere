@@ -312,7 +312,7 @@ function saveReport(letterId, reason, comment) {
 // ============================================================
 // COUNTER — seed + per-browser increment
 // ============================================================
-const SEED = 2847; // change this to any starting number you want
+const SEED = 100; // change this to any starting number you want
 
 function getCount() {
   const stored = parseInt(localStorage.getItem("als:count") || "0");
