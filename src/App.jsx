@@ -312,7 +312,7 @@ function saveReport(letterId, reason, comment) {
 // ============================================================
 // COUNTER — seed + per-browser increment
 // ============================================================
-const SEED = 100; // change this to any starting number you want
+const SEED = 75; // change this to any starting number you want
 
 function getCount() {
   const stored = parseInt(localStorage.getItem("als:count") || "0");
@@ -354,12 +354,12 @@ function pickLetter(wantCategory) {
 const STYLE = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg:#0c0a08; --surface:#141109; --border:#2a2318;
-    --accent:#c8a96e; --accent2:#8b6f47;
-    --text:#e8dcc8; --muted:#7a6e5f; --danger:#b05050; --success:#5a8a6a;
-    --fd:'Playfair Display',Georgia,serif; --fb:'Crimson Pro',Georgia,serif;
-  }
+:root {
+  --bg:#F6EFE4; --surface:#FFFDF8; --border:#000000;
+  --accent:#000000; --accent2:#000000;
+  --text:#000000; --muted:#333333; --danger:#b05050; --success:#5a8a6a;
+  --fd:'Playfair Display',Georgia,serif; --fb:'Crimson Pro',Georgia,serif;
+}
   body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size:18px; line-height:1.7; min-height:100vh; }
   .app { max-width:740px; margin:0 auto; padding:36px 24px 80px; }
 
@@ -422,7 +422,7 @@ const STYLE = `
 
   /* BUTTONS */
   .btn { display:inline-flex; align-items:center; gap:7px; padding:10px 20px; border:none; font-family:var(--fb); font-size:.93rem; cursor:pointer; border-radius:1px; transition:all .18s; letter-spacing:.02em; }
-  .btn-p { background:var(--accent); color:#130f08; font-weight:600; }
+  .btn-p { background:#000000; color:#ffffff; font-weight:600; }
   .btn-p:hover:not(:disabled) { background:#d4b87a; }
   .btn-p:disabled { background:var(--border); color:var(--muted); cursor:not-allowed; }
   .btn-g { background:transparent; border:1px solid var(--border); color:var(--muted); }
@@ -480,7 +480,7 @@ function Tag({ cat, selected, onClick }) {
 function Nav({ setPage }) {
   return (
     <nav className="nav">
-      <span className="brand" onClick={()=>setPage("home")}>✉ Letterbox</span>
+      <span className="brand" onClick={()=>setPage("home")}>✉ SpeakSphere</span>
       <div className="nav-links">
         <button className="nav-btn" onClick={()=>setPage("write")}>Write</button>
       </div>
@@ -497,9 +497,9 @@ function Home({ setPage }) {
   return (
     <div>
       <div className="hero">
-        <p className="hero-tag">Anonymous</p>
-        <h1>Anonymous<br /><em>Letters</em></h1>
-        <p>Write an anonymous letter from the soul. Choose a category. Receive one back from the archive.</p>
+        <p className="hero-tag"></p>
+        <h1>SpeakSphere<br /><em>Anonymous</em></h1>
+        <p>Write an anonymous letter. Choose a category. Receive one back from the archive.</p>
 
         {/* COUNTER */}
         <div style={{
@@ -527,7 +527,7 @@ function Home({ setPage }) {
         {[
           {n:"01",t:"Write",d:"Compose up to 200 words. Give it a subject and a category tag."},
           {n:"02",t:"Filter",d:"Choose what kind of letter you want to receive in return."},
-          {n:"03",t:"Receive",d:"Get a letter from the archive — something true, from someone you'll never meet."},
+          {n:"03",t:"Receive",d:"Get a letter from the archive something true, from someone you'll never meet."},
         ].map(({n,t,d})=>(
           <div key={n}>
             <div style={{fontFamily:"var(--fd)",fontSize:"1.7rem",color:"var(--accent)",opacity:.3,marginBottom:6}}>{n}</div>
@@ -594,14 +594,14 @@ function Write({ setPage, setReceivedLetter }) {
         {/* SUBJECT */}
         <div className="c-field">
           <span className="c-label">Subject</span>
-          <input className="c-input" placeholder="A line that captures it…"
+          <input className="c-input" placeholder=""
             value={subject} onChange={e=>setSubject(e.target.value)} maxLength={120} />
         </div>
 
         {/* BODY */}
         <div className="c-body">
           <textarea className="c-textarea"
-            placeholder={"Dear stranger,\n\nI've been meaning to say hello..."}
+            placeholder={"Dear friend,\n\nMessage here..."}
             value={text} onChange={e=>setText(e.target.value)} />
         </div>
 
